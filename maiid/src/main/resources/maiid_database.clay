@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.1">
+<database-model author="" begin-script="" end-script="" id="191be6c:1407356f1b0:-8000" name="maiid_database" sql-dialect-id="jp.azzurri.clay.dialect.Postgre_7_3_Dialect" version="1.0">
+<schema-list>
+<schema id="1cc2f1a:14073647114:-7ffe" name="DEFAULT_SCHEMA">
+<table-list>
+<table id="1cc2f1a:14073647114:-8000" name="maiid_artist">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7ff9" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7fff" name="PK_MAIID_ARTIST">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table id="1cc2f1a:14073647114:-7ff8" name="maiid_card">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7fcf" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7fe6" mandatory="true" name="aid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7fa5" mandatory="true" name="tid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7ff7" name="PK_MAIID_CARD">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7fe8" name="FK_maiid_card_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="aid" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="1cc2f1a:14073647114:-7fb4" name="FK_maiid_card_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_CARD_TEMPLATE" referenced-table="maiid_card_template" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="tid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7fc5" name="maiid_card_template">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7fbf" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7fc4" name="PK_MAIID_CARD_TEMPLATE">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table id="1cc2f1a:14073647114:-7f86" name="maiid_audience">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f80" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7f85" name="PK_MAIID_AUDIENCE">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table id="1cc2f1a:14073647114:-7f7d" name="maiid_favourite_card">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f79" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f78" mandatory="true" name="audid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f77" mandatory="true" name="cid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7f7c" name="PK_MAIID_FAVOURITE_CARD">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7f69" name="FK_TABLE_5_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_AUDIENCE" referenced-table="maiid_audience" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="audid" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="1cc2f1a:14073647114:-7f5c" name="FK_TABLE_5_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_CARD" referenced-table="maiid_card" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="cid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7f3c" name="maiid_skill_set">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f38" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7f37" mandatory="true" name="aid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7ef1" mandatory="true" name="tid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7f3b" name="PK_MAIID_SKILL_SET">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7f23" name="FK_maiid_skill_set_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="aid" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="1cc2f1a:14073647114:-7ee2" name="FK_maiid_skill_set_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_SKILL_SET_TYPE" referenced-table="maiid_skill_set_type" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="tid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7efc" name="maiid_skill_set_type">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7efa" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7ef8" name="PK_MAIID_SKILL_SET_TYPE">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table id="1cc2f1a:14073647114:-7eb2" name="maiid_artist_exp">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e8b" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e4f" mandatory="true" name="aid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7eb1" name="PK_MAIID_ARTIST_EXP">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7e8d" name="FK_maiid_artist_exp_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="aid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7eae" name="maiid_artist_award">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e9b" mandatory="true" name="id">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e52" mandatory="true" name="aid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7eac" name="PK_MAIID_ARTIST_AWARD">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7e9d" name="FK_maiid_artist_award_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="aid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7e77" name="maiid_artist_details">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e75" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e5b" mandatory="true" name="aid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7e74" name="PK_MAIID_ARTIST_DETAILS">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7e6a" name="FK_maiid_artist_details_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="aid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure height="55" refid="1cc2f1a:14073647114:-8000" width="102" x="92" y="107"/>
+<table-figure refid="1cc2f1a:14073647114:-7ff8" x="584" y="322"/>
+<table-figure refid="1cc2f1a:14073647114:-7fc5" x="430" y="203"/>
+<table-figure refid="1cc2f1a:14073647114:-7f86" x="178" y="542"/>
+<table-figure refid="1cc2f1a:14073647114:-7f7d" x="517" y="532"/>
+<table-figure refid="1cc2f1a:14073647114:-7f3c" x="268" y="275"/>
+<table-figure refid="1cc2f1a:14073647114:-7efc" x="120" y="394"/>
+<table-figure refid="1cc2f1a:14073647114:-7eb2" x="879" y="150"/>
+<table-figure refid="1cc2f1a:14073647114:-7eae" x="891" y="45"/>
+<table-figure refid="1cc2f1a:14073647114:-7e77" x="351" y="15"/>
+</diagram>
+</clay-model>

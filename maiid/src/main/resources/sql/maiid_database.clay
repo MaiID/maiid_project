@@ -284,6 +284,61 @@
 </foreign-key>
 </foreign-key-list>
 </table>
+<table id="1cc2f1a:14073647114:-7c6d" name="maiid_search_key">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c1d" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7b99" mandatory="true" name="tid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c1c" mandatory="true" name="key">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7c6c" name="PK_MAIID_SEARCH_KEY">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7baf" name="FK_maiid_search_key_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_SEARCH_KEY_TYPE" referenced-table="maiid_search_key_type" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="tid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7c67" name="maiid_card_tag">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c3f" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c29" mandatory="true" name="cid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c28" mandatory="true" name="key">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7c66" name="PK_MAIID_CARD_TAG">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="1cc2f1a:14073647114:-7c41" name="FK_maiid_card_tag_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_CARD" referenced-table="maiid_card" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="cid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="1cc2f1a:14073647114:-7bce" name="maiid_search_key_type">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7bcc" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7bca" mandatory="true" name="type">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+</column-list>
+<primary-key id="1cc2f1a:14073647114:-7bc9" name="PK_MAIID_SEARCH_KEY_TYPE">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
 </table-list>
 </schema>
 </schema-list>
@@ -300,5 +355,8 @@
 <table-figure refid="1cc2f1a:14073647114:-7eae" x="486" y="95"/>
 <table-figure height="162" refid="1cc2f1a:14073647114:-7e77" width="115" x="297" y="5"/>
 <table-figure refid="1cc2f1a:14073647114:-7df0" x="312" y="592"/>
+<table-figure refid="1cc2f1a:14073647114:-7c6d" x="852" y="174"/>
+<table-figure refid="1cc2f1a:14073647114:-7c67" x="796" y="543"/>
+<table-figure refid="1cc2f1a:14073647114:-7bce" x="732" y="54"/>
 </diagram>
 </clay-model>

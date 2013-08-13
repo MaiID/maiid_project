@@ -4,8 +4,8 @@
 
 <html>
 <body>
-<spring:url value="/artist" var="artist_url"/>
-<spring:url value="/audience" var="audience_url"/>
+<spring:url value="/artist" var="artist_url" htmlEncoding="true"/>
+<spring:url value="/audience" var="audience_url" htmlEncoding="true"/>
 <center>
 	<h1>Maiid Engine</h1>
 	<div style="margin:10px;"><object width="560" height="315"><param name="movie" value="//www.youtube-nocookie.com/v/dKrWyb9oJKU?version=3&amp;hl=en_US&autoplay=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="//www.youtube-nocookie.com/v/dKrWyb9oJKU?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="560" height="315" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>

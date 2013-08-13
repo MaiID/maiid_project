@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PageController {
 
-	@RequestMapping(value="/home", method=RequestMethod.GET)
-	public String home(){
-		return "/index.jsp";
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "/WEB-INF/pages/index.jsp";
 	}
+	
 }

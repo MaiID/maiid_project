@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.maiid.rest.GetSearchKeyResponse;
-import com.maiid.rest.ResponseStatus;
+import com.maiid.rest.webservice.GetSearchKeyResponse;
+import com.maiid.rest.webservice.ResponseStatus;
 import com.maiid.service.SearchService;
 
 @Controller

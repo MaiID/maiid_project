@@ -15,19 +15,31 @@
 	<center>
 		<h1>Maiid Engine</h1>
 		<h2>Artist login</h2>
-		<table>
+		<table style="margin: 10px;">
 			<tr>
-				<td>
+				<td
+					style="width: 400px; padding: 50px; text-align: center; background: #DEF7FF">
 					<div>You are not member?</div> <a href="${artist_register_url}"><button
 							style="width: 150px; height: 70px; margin: 10px;">Artist
 							Register</button></a>
 				</td>
-				<td>
+				<td
+					style="width: 400px; padding: 50px; text-align: center; background: #DEF7FF">
 					<div>
 						<form action="${artist_login_url}" method="POST">
-							<div>Email: <input id="email" name="email" /></div>
-							<div>Password: <input id="password" name="password" /></div>
-							<div><input type="submit"/></div>
+							<div>
+								Email: <input id="email" name="email" />
+							</div>
+							<div>
+								Password: <input id="password" name="password" />
+							</div>
+							<div>
+								<input type="submit" />
+							</div>
+							<c:if test="${ not empty message }">
+								<div
+									style="width: 400px; padding: 10px; background: #FFD9E6; border: 1px solid #FF0000; color: #FF0000; text-align: center">${message}</div>
+							</c:if>
 						</form>
 					</div>
 				</td>

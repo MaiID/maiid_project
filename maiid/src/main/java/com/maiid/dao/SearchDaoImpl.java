@@ -14,6 +14,7 @@ import com.maiid.model.SearchKey;
 public class SearchDaoImpl implements SearchDao {
 
 	private static String SQL_GETALLSEARCHKEY = "select * from maiid_search_key";
+	private static String SQL_GETALLSEARCHKEYTYPE = "select * from maiid_search_key_type where id=?";
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -25,10 +26,13 @@ public class SearchDaoImpl implements SearchDao {
 				.queryForList(SQL_GETALLSEARCHKEY);
 		for (Map<String, Object> map : resultSet) {
 			SearchKey sk = new SearchKey();
-			sk.setId((Integer) map.get("id"));
-			sk.setTid((Integer) map.get("tid"));
-			sk.setKey((String) map.get("key"));
-			result.add(sk);
+			List<Map<String, Object>> typeResult = jdbcTemplate.queryForList(SQL_GETALLSEARCHKEYTYPE, (Integer) map.get("tid"));
+			if(typeResult.size() > 0){
+				sk.setId((Integer) map.get("id"));
+				sk.setType((String) typeResult.get(0).get("type"));
+				sk.setKey((String) map.get("key"));
+				result.add(sk);
+			}
 		}
 		return result;
 	}

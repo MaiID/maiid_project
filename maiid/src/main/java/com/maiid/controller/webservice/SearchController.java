@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.maiid.rest.GetSearchKeyResponse;
+import com.maiid.rest.ResponseStatus;
 import com.maiid.service.SearchService;
 
 @Controller
@@ -21,6 +22,7 @@ public class SearchController {
 	public GetSearchKeyResponse getKeyList() {
 		GetSearchKeyResponse gskr = new GetSearchKeyResponse();
 		gskr.setKeys(searchService.getSearchKeyList());
+		gskr.setStatus(ResponseStatus.SUCCESS);
 		return gskr;
 	}
 

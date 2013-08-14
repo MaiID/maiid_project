@@ -20,5 +20,10 @@ public class BaseResponse {
 	public void setErrorMessage(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
+	
+	public void setStatus(ResponseStatus status){
+		this.errorCode = status.getErrorCode();
+		this.errorMessage = status.getErrorMessage();
+	}
 
 }

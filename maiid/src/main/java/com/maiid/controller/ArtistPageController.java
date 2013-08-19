@@ -9,9 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.maiid.model.Artist;
+import com.maiid.model.ArtistDetails;
 import com.maiid.rest.HomeRequest;
 import com.maiid.rest.LoginRequest;
 import com.maiid.service.ArtistService;
@@ -49,15 +49,26 @@ public class ArtistPageController {
 			@ModelAttribute HomeRequest request) {
 		if (session.getAttribute("MAIID_ARTIST") == null
 				|| "".equals(session.getAttribute("MAIID_ARTIST"))) {
-			if(request.getMessage() != null){
+			if (request.getMessage() != null) {
 				model.addAttribute("message", "Login incorrect! Please try again!");
 			}
-			return "/WEB-INF/pages/artist/login.jsp";
+			return "artist/login.jsp";
 		} else {
 			model.addAttribute("artist",
 					(Artist) session.getAttribute("MAIID_ARTIST"));
-			return "/WEB-INF/pages/artist/index.jsp";
+			return "artist/index.jsp";
 		}
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register() {
+		return "artist/register.jsp";
+	}
+
+	@RequestMapping(value = "/do_register", method = RequestMethod.POST)
+	public String do_register(@ModelAttribute Artist artist, @ModelAttribute ArtistDetails artistDetails) {
+		artistService.createNewArtist(artist, artistDetails);
+		return "forward:/artist/home";
 	}
 
 }

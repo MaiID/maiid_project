@@ -1,5 +1,5 @@
 package com.maiid.rest.webservice;
 
-public class GetSearchKeyRequest {
+public class GetSearchKeyRequest extends BaseRequest {
 	
 }

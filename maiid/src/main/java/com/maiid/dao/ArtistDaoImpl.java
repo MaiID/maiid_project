@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.maiid.model.Artist;
 import com.maiid.model.ArtistAward;
+import com.maiid.model.ArtistDetails;
 import com.maiid.model.ArtistExp;
 
 @Repository
@@ -18,6 +19,9 @@ public class ArtistDaoImpl implements ArtistDao {
 	private static String SQL_ADD_ARTUST = "insert into maiid_artist "
 			+ "(email, password, lastname, firstname, gender, district)"
 			+ " values (?, ?, ?, ?, ?, ?) returning id;";
+	private static String SQL_INSERTDETAILS = "insert into maiid_artist_details "
+			+ "(aid, crew, height, weight, chest, waist, hip, dresssize, haircolor) "
+			+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static String SQL_INSERTAWARD = "insert into maiid_artist_award "
 			+ "(aid, date, grading, competition, organizer, description)"
 			+ " values (?, ?, ?, ?, ?, ?) returning id";
@@ -29,6 +33,13 @@ public class ArtistDaoImpl implements ArtistDao {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	@Override
+	public void createArtist(Artist artist, ArtistDetails artistDetails){
+		artist = newArtist(artist);
+		artistDetails.setAid(artist.getId());
+		insertArtistDetails(artistDetails);
+	}
 
 	@Override
 	public Artist newArtist(Artist artist) {
@@ -43,7 +54,18 @@ public class ArtistDaoImpl implements ArtistDao {
 	@Override
 	public void getArtistDetailsById(int aid) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public ArtistDetails insertArtistDetails(ArtistDetails artistDetails) {
+		// TODO Auto-generated method stub
+		jdbcTemplate.update(SQL_INSERTDETAILS, artistDetails.getAid(),
+				artistDetails.getCrew(), artistDetails.getHeight(),
+				artistDetails.getWeight(), artistDetails.getChest(),
+				artistDetails.getWaist(), artistDetails.getHip(),
+				artistDetails.getDresssize(), artistDetails.getHaircolor());
+		return artistDetails;
 	}
 
 	@Override
@@ -71,7 +93,7 @@ public class ArtistDaoImpl implements ArtistDao {
 		ArrayList<Artist> artists = new ArrayList<Artist>();
 		List<Map<String, Object>> resultSet = jdbcTemplate.queryForList(
 				SQL_SEARCH_ARTIST_BY_EMAIL_PASSWORD, email, password);
-		for(Map<String, Object> result : resultSet){
+		for (Map<String, Object> result : resultSet) {
 			Artist artist = new Artist();
 			artist.setId((Integer) result.get("id"));
 			artist.setEmail((String) result.get("email"));

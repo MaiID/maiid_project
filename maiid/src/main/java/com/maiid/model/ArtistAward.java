@@ -6,7 +6,7 @@ public class ArtistAward {
 
 	private int id;
 	private int aid;
-	private Date date;
+	private String date;
 	private String grading;
 	private String competition;
 	private String organizer;
@@ -26,14 +26,6 @@ public class ArtistAward {
 
 	public void setAid(int aid) {
 		this.aid = aid;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 	public String getGrading() {
@@ -66,6 +58,14 @@ public class ArtistAward {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 }

@@ -1,0 +1,13 @@
+<maiid:card-template xmlns:maiid="http://www.axialhk.com/maiid/card/editor">
+	<maiid:block id="mb1" type="customImage" x="0" y="0" width="100px"
+		height="100px" order="5"></maiid:block>
+	<maiid:block id="mb2" type="staticImage" x="100" y="0"
+		width="100px" height="100px" order="8">http://www.tintoyblanco.com.au/wp-content/uploads/number_100.png
+	</maiid:block>
+	<maiid:block id="mb3" type="customVideo" x="0" y="100"
+		width="100px" height="100px" order="3"></maiid:block>
+	<maiid:block id="mb4" type="customText" x="100" y="100"
+		width="100px" height="100px" order="2"></maiid:block>
+	<maiid:block id="mb5" type="customText" x="200" y="200"
+		width="100px" height="100px" order="1">I am demo text</maiid:block>
+</maiid:card-template>

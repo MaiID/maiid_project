@@ -13,5 +13,14 @@
 <body>
 	Welcome back! ${artist.lastname} ${artist.firstname}
 	<a href="${artist_logout}">Logout</a>
+	<center>
+		<h1>MaiID Engine</h1>
+		<div style="width:800px;">
+			<div style="width:800px;float:left;height: 200px;border:1px solid #000;margin:5px;">
+				<h2>My account</h2>
+			</div>
+			<div style="width:800px;float:left;height: 50px;border:1px solid #000;margin:5px;"><h5>Card list</h5></div>
+		</div>
+	</center>
 </body>
 </html>

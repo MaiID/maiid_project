@@ -7,6 +7,7 @@ public class Artist {
 	private String password;
 	private String lastname;
 	private String firstname;
+	private String dateofbirth;
 	private String gender;
 	private String district;
 
@@ -64,5 +65,13 @@ public class Artist {
 
 	public void setDistrict(String district) {
 		this.district = district;
+	}
+
+	public String getDateofbirth() {
+		return dateofbirth;
+	}
+
+	public void setDateofbirth(String dateofbirth) {
+		this.dateofbirth = dateofbirth;
 	}
 }

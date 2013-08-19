@@ -27,6 +27,9 @@
 <column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7e16" mandatory="true" name="district">
 <data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
 </column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7d7e" mandatory="true" name="dateofbirth">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
 </column-list>
 <primary-key id="1cc2f1a:14073647114:-7fff" name="PK_MAIID_ARTIST">
 <primary-key-column name="id"/>
@@ -46,9 +49,6 @@
 <column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c8f" mandatory="true" name="title">
 <data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
 </column>
-<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c8d" mandatory="true" name="customData">
-<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
-</column>
 </column-list>
 <primary-key id="1cc2f1a:14073647114:-7ff7" name="PK_MAIID_CARD">
 <primary-key-column name="id"/>
@@ -57,26 +57,7 @@
 <foreign-key id="1cc2f1a:14073647114:-7fe8" name="FK_maiid_card_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_ARTIST" referenced-table="maiid_artist" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
 <foreign-key-column column-name="aid" referenced-key-column-name="id"/>
 </foreign-key>
-<foreign-key id="1cc2f1a:14073647114:-7fb4" name="FK_maiid_card_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_CARD_TEMPLATE" referenced-table="maiid_card_template" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="1" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
-<foreign-key-column column-name="tid" referenced-key-column-name="id"/>
-</foreign-key>
 </foreign-key-list>
-</table>
-<table id="1cc2f1a:14073647114:-7fc5" name="maiid_card_template">
-<column-list>
-<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7fbf" mandatory="true" name="id">
-<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
-</column>
-<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c95" mandatory="true" name="xmlPath">
-<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
-</column>
-<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="1cc2f1a:14073647114:-7c92" mandatory="true" name="price">
-<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
-</column>
-</column-list>
-<primary-key id="1cc2f1a:14073647114:-7fc4" name="PK_MAIID_CARD_TEMPLATE">
-<primary-key-column name="id"/>
-</primary-key>
 </table>
 <table id="1cc2f1a:14073647114:-7f86" name="maiid_audience">
 <column-list>
@@ -339,24 +320,102 @@
 <primary-key-column name="id"/>
 </primary-key>
 </table>
+<table id="8917e1:14097939d9d:-7e38" name="maiid_template">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7dfa" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+</column-list>
+<primary-key id="8917e1:14097939d9d:-7e37" name="PK_MAIID_TEMPLATE">
+<primary-key-column name="id"/>
+</primary-key>
+</table>
+<table id="8917e1:14097939d9d:-7e34" name="maiid_template_block">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e30" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e28" mandatory="true" name="tid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2f" mandatory="true" name="x">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2e" mandatory="true" name="y">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2d" mandatory="true" name="width">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2c" mandatory="true" name="height">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2b" mandatory="true" name="order">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e2a" mandatory="true" name="staticContent">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7e29" mandatory="true" name="type">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR"/>
+</column>
+</column-list>
+<primary-key id="8917e1:14097939d9d:-7e33" name="PK_MAIID_TEMPLATE_BLOCK">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="8917e1:14097939d9d:-7e11" name="FK_maiid_template_block_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_TEMPLATE" referenced-table="maiid_template" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="tid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="8917e1:14097939d9d:-7df0" name="maiid_card_content_mapping">
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7dec" mandatory="true" name="id">
+<data-type name="SERIAL" selected-variant-pattern="SERIAL"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7deb" mandatory="true" name="cid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7dea" mandatory="true" name="blockid">
+<data-type name="INTEGER" selected-variant-pattern="INTEGER"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="8917e1:14097939d9d:-7de9" mandatory="true" name="customerContent">
+<data-type name="CHAR" selected-variant-pattern="CHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="8917e1:14097939d9d:-7def" name="PK_MAIID_CARD_CONTENT_MAPPING">
+<primary-key-column name="id"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="8917e1:14097939d9d:-7d99" name="FK_maiid_card_content_mapping_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_TEMPLATE_BLOCK" referenced-table="maiid_template_block" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="blockid" referenced-key-column-name="id"/>
+</foreign-key>
+<foreign-key id="8917e1:14097939d9d:-7ddb" name="FK_maiid_card_content_mapping_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_MAIID_CARD" referenced-table="maiid_card" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="cid" referenced-key-column-name="id"/>
+</foreign-key>
+</foreign-key-list>
+</table>
 </table-list>
 </schema>
 </schema-list>
 </database-model>
 <diagram>
-<table-figure height="126" refid="1cc2f1a:14073647114:-8000" width="124" x="70" y="190"/>
-<table-figure refid="1cc2f1a:14073647114:-7ff8" x="541" y="471"/>
-<table-figure refid="1cc2f1a:14073647114:-7fc5" x="434" y="332"/>
+<table-figure height="146" refid="1cc2f1a:14073647114:-8000" width="124" x="70" y="190"/>
+<table-figure refid="1cc2f1a:14073647114:-7ff8" x="564" y="466"/>
 <table-figure refid="1cc2f1a:14073647114:-7f86" x="138" y="653"/>
 <table-figure refid="1cc2f1a:14073647114:-7f7d" x="555" y="646"/>
 <table-figure refid="1cc2f1a:14073647114:-7f3c" x="315" y="490"/>
 <table-figure refid="1cc2f1a:14073647114:-7efc" x="60" y="441"/>
-<table-figure refid="1cc2f1a:14073647114:-7eb2" x="609" y="238"/>
+<table-figure refid="1cc2f1a:14073647114:-7eb2" x="635" y="182"/>
 <table-figure refid="1cc2f1a:14073647114:-7eae" x="486" y="95"/>
 <table-figure height="162" refid="1cc2f1a:14073647114:-7e77" width="115" x="297" y="5"/>
 <table-figure refid="1cc2f1a:14073647114:-7df0" x="312" y="592"/>
 <table-figure refid="1cc2f1a:14073647114:-7c6d" x="852" y="174"/>
-<table-figure refid="1cc2f1a:14073647114:-7c67" x="796" y="543"/>
+<table-figure refid="1cc2f1a:14073647114:-7c67" x="809" y="573"/>
 <table-figure refid="1cc2f1a:14073647114:-7bce" x="732" y="54"/>
+<table-figure refid="8917e1:14097939d9d:-7e38" x="956" y="524"/>
+<table-figure refid="8917e1:14097939d9d:-7e34" x="895" y="286"/>
+<table-figure height="84" refid="8917e1:14097939d9d:-7df0" width="154" x="525" y="329"/>
 </diagram>
 </clay-model>

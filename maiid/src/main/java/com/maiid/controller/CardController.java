@@ -1,4 +1,4 @@
-package com.maiid.controller.webservice;
+package com.maiid.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.maiid.model.BlockDetails;
 import com.maiid.model.CardListItem;
 import com.maiid.model.CardTemplateDetails;
-import com.maiid.model.CustomerContentBlockDetails;
-import com.maiid.model.CustomerContentDetails;
+import com.maiid.model.UserContentBlockDetails;
+import com.maiid.model.UserContentDetails;
 import com.maiid.rest.webservice.GetCardDetailsRequest;
 import com.maiid.rest.webservice.GetCardDetailsResponse;
-import com.maiid.rest.webservice.GetCustomerCardListRequest;
-import com.maiid.rest.webservice.GetCustomerCardListResponse;
+import com.maiid.rest.webservice.GetUserCardListRequest;
+import com.maiid.rest.webservice.GetUserCardListResponse;
 import com.maiid.rest.webservice.ResponseStatus;
 
 @Controller
 @RequestMapping("/card")
 public class CardController {
 
-	@RequestMapping(value = "/getCustomerCardList", method = RequestMethod.GET)
+	@RequestMapping(value = "/getUserCardList", method = RequestMethod.GET)
 	@ResponseBody
-	public GetCustomerCardListResponse getCard(
-			@ModelAttribute GetCustomerCardListRequest request) {
-		GetCustomerCardListResponse gcr = new GetCustomerCardListResponse();
+	public GetUserCardListResponse getCard(
+			@ModelAttribute GetUserCardListRequest request) {
+		GetUserCardListResponse gcr = new GetUserCardListResponse();
 		List<CardListItem> cards = new ArrayList<CardListItem>();
 		cards
 				.add(new CardListItem(1, "Title 1", "02-02-1999",
@@ -54,13 +54,13 @@ public class CardController {
 		GetCardDetailsResponse gcdr = new GetCardDetailsResponse();
 		
 		// Create mock customer content details
-		List<CustomerContentBlockDetails> ccbds = new ArrayList<CustomerContentBlockDetails>();
-		ccbds.add(new CustomerContentBlockDetails(1, ""));
-		ccbds.add(new CustomerContentBlockDetails(2, ""));
-		ccbds.add(new CustomerContentBlockDetails(3, ""));
-		ccbds.add(new CustomerContentBlockDetails(4, ""));
-		ccbds.add(new CustomerContentBlockDetails(5, ""));
-		CustomerContentDetails ccd = new CustomerContentDetails();
+		List<UserContentBlockDetails> ccbds = new ArrayList<UserContentBlockDetails>();
+		ccbds.add(new UserContentBlockDetails(1, ""));
+		ccbds.add(new UserContentBlockDetails(2, ""));
+		ccbds.add(new UserContentBlockDetails(3, ""));
+		ccbds.add(new UserContentBlockDetails(4, ""));
+		ccbds.add(new UserContentBlockDetails(5, ""));
+		UserContentDetails ccd = new UserContentDetails();
 		ccd.setTemplateId(request.getCardId() + 1);
 		ccd.setBlocksDetails(ccbds);
 		gcdr.setCustomerContent(ccd);
@@ -79,13 +79,5 @@ public class CardController {
 		return gcdr;
 	}
 	
-	@RequestMapping(value = "/addNewCards", method = RequestMethod.GET)
-	@ResponseBody
-	public GetCardDetailsResponse addNewCards(
-			@ModelAttribute GetCardDetailsRequest request) {
-				return null;
-		
-	}
-			
 			
 }

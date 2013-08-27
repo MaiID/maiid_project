@@ -1,17 +1,17 @@
 package com.maiid.model;
 
-public class CustomerContentBlockDetails {
+public class UserContentBlockDetails {
 
 	private int blockId;
 	private String customerContent;
 
-	public CustomerContentBlockDetails(int blockId, String customerContent) {
+	public UserContentBlockDetails(int blockId, String customerContent) {
 		super();
 		this.blockId = blockId;
 		this.customerContent = customerContent;
 	}
 
-	public CustomerContentBlockDetails() {
+	public UserContentBlockDetails() {
 
 	}
 

@@ -1,4 +1,4 @@
-package com.maiid.controller.webservice;
+package com.maiid.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

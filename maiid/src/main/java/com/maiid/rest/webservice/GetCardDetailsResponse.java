@@ -1,13 +1,13 @@
 package com.maiid.rest.webservice;
 
 import com.maiid.model.CardTemplateDetails;
-import com.maiid.model.CustomerContentDetails;
+import com.maiid.model.UserContentDetails;
 
 public class GetCardDetailsResponse extends BaseResponse {
 
 	private int cardId;
 	private CardTemplateDetails templateDetails;
-	private CustomerContentDetails customerContent;
+	private UserContentDetails customerContent;
 
 
 	public int getCardId() {
@@ -18,11 +18,11 @@ public class GetCardDetailsResponse extends BaseResponse {
 		this.cardId = cardId;
 	}
 
-	public CustomerContentDetails getCustomerContent() {
+	public UserContentDetails getCustomerContent() {
 		return customerContent;
 	}
 
-	public void setCustomerContent(CustomerContentDetails customerContent) {
+	public void setCustomerContent(UserContentDetails customerContent) {
 		this.customerContent = customerContent;
 	}
 

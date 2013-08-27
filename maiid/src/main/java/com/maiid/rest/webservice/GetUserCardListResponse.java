@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.maiid.model.CardListItem;
 
-public class GetCustomerCardListResponse extends BaseResponse{
+public class GetUserCardListResponse extends BaseResponse{
 	
 	private List<CardListItem> cards;
 
